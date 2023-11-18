@@ -1,0 +1,49 @@
+/* 전체 헤더 박스 */
+header {
+    /* 고정 */
+    position: fixed;
+    top : 0;
+    left : 0;
+
+    /* 박스 사이즈 */
+    width: var(--header-width);
+    height: var(--header-height);
+
+    /* 박스내부 정렬 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* 박스 내부 색상 */
+    background-color: var(--navbox-color);
+    opacity: var(--header-opacity);
+}
+
+/* 헤더박스 안 좌측 박스 */
+header .headerLeft {
+    /* 박스 내부 정렬 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* 스쿠루지 아이콘 */
+header .headerLeft img {
+    width: var(--header-icon-width);
+    height: var(--header-icon-height);
+    padding-right: 15px;
+}
+
+/* 앱 이름 */
+header .headerLeft .appName {
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--header-applogo-color);
+}
+
+/* 화면모드 아이콘 */
+header .headerRight img {
+    width: var(--header-icon-width);
+    height: var(--header-icon-height);
+}

@@ -1,0 +1,29 @@
+.loginForm form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color : var(--font-color);
+    width: var(--form-width);
+    height: var(--form-height);
+    background-color: var(--widget-color);
+    border-radius: var(--widget-border-radius);
+}
+
+.loginForm input{
+    font-size: var(--form-input-font-size);
+    background-color: var(--form-input-color);
+    width: var(--form-input-width);
+    height: var(--form-input-height);
+    border: none;
+}
+
+.loginForm button{
+    background-color: var(--form-button-color);
+    width: var(--form-button-width);
+    height: var(--form-button-height);
+    font-size: var(--form-button-font-size);
+    color: var(--font-color);
+    border-radius: var(--form-button-border-radius);
+    border: none;
+}

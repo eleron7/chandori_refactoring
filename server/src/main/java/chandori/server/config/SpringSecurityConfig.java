@@ -26,20 +26,9 @@ public class SpringSecurityConfig {
         http.csrf().disable().cors().disable()
                 .authorizeHttpRequests(request -> request
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .requestMatchers("/status", "/images/**", "/view/join", "/auth/join").permitAll()
-                        .requestMatchers("/view/setting/admin").hasRole("ADMIN")
-                        .requestMatchers("/view/setting/user").hasRole("USER")
+                        .requestMatchers("/api/join").permitAll()
                         .anyRequest().authenticated()
-                )
-                .formLogin(login -> login
-                        .loginPage("/view/login")
-                        .loginProcessingUrl("/login-process")
-                        .usernameParameter("email")
-                        .passwordParameter("password")
-                        .defaultSuccessUrl("/view/dashboard", true)
-                        .permitAll()
-                )
-                .logout(withDefaults());
+                );
 
         return http.build();
     }

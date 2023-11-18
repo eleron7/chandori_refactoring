@@ -1,0 +1,5 @@
+contents div {
+    /* 모든 콘텐츠를 헤더 길이만큼 내려주기 */
+    padding-top: var(--header-height);
+    color: var(--font-color);
+}

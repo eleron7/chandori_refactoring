@@ -1,0 +1,24 @@
+.Menu {
+    /* 고정 */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    /* 박스 사이즈 */
+    width: var(--menu-width);
+    height: var(--menu-height);
+
+    /* 박스내부 정렬 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* 박스 내부 색상 */
+    background-color: var(--navbox-color);
+}
+
+.Menu img {
+    width: var(--menu-icon-width);
+    height: var(--menu-icon-height);
+}

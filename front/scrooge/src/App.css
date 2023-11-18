@@ -1,0 +1,80 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+:root{
+  /*  */
+  --navbox-color : #302D45;
+  --background-color : #14131F;
+  --font-color : white;
+
+  /* 위젯 */
+  --widget-color : #2C2A36;
+  --widget-border-radius : 50px;
+
+  /* 로그인 회원가입 폼 */
+  --form-width : 700px;
+  --form-height : 800px;
+  --form-input-width : 300px;
+  --form-input-height : 40px;
+  --form-input-color : #413F4B;
+  --form-input-font-size : 30px;
+  --form-input-font-color : grey;
+  --form-button-width : 400px;
+  --form-button-height : 70px;
+  --form-button-color : #651B69;
+  --form-button-font-size : 35px;
+  --form-button-border-radius : 20px;
+  /* 헤더 */  
+  --header-width : 100%;
+  --header-height : 100px;
+  --header-opacity : 95%;
+  --header-applogo-color : #B4B4B4;
+  --header-icon-width : 100px;
+  --header-icon-height : 100px;
+
+  /* 메뉴 */
+  --menu-width : 100%;
+  --menu-height : 100px;
+  --menu-icon-witdh : 100px;
+  --menu-icon-height : 100px;
+}
+
+body{
+  background-color: var(--background-color);
+}
