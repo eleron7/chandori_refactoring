@@ -1,14 +1,14 @@
-.joinForm{
+.loginForm{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.joinForm form{
+.loginForm form{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     color : var(--font-color);
     width: var(--form-width);
@@ -17,7 +17,7 @@
     border-radius: var(--widget-border-radius);
 }
 
-.joinForm input{
+.loginForm input{
     font-size: var(--form-input-font-size);
     background-color: var(--form-input-color);
     color : var(--font-color);
@@ -26,7 +26,7 @@
     border: none;
 }
 
-.joinForm button{
+.loginForm button{
     background-color: var(--form-button-color);
     width: var(--form-button-width);
     height: var(--form-button-height);
@@ -34,4 +34,36 @@
     color: var(--font-color);
     border-radius: var(--form-button-border-radius);
     border: none;
+}
+
+.loginFormLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginFormLogo img{
+    width: var(--form-logo-width);
+    height: var(--form-logo-height);
+}
+
+.loginFormLogo h1{
+    font-size: var(--form-applogo-font-size);
+    color : var(--form-applogo-color);
+}
+
+.loginCheckBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginCheckBox label {
+    font-size: 25px;
+    width: 200px;
+}
+
+.loginCheckBox input {
+    width: 30px;
+    height: 30px;
 }

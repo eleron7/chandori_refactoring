@@ -1,4 +1,4 @@
-package chandori.util;
+package chandori.server.util;
 
 import java.util.regex.Pattern;
 

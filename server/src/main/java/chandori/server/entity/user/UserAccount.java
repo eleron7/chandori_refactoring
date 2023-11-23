@@ -2,6 +2,7 @@ package chandori.server.entity.user;
 
 
 import jakarta.persistence.*;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
@@ -51,9 +52,8 @@ public class UserAccount {
 
     public UserAccount() {}
 
-    public static UserAccount createUser(String userId, String email, String password, String name, String nickname, String job, Long income, PasswordEncoder passwordEncoder){
-        UserAccount newUser = new UserAccount(null, userId, email, passwordEncoder.encode(password), name, nickname, job, income, "USER");
-        return newUser;
+    public UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken(){
+        return new UsernamePasswordAuthenticationToken(userId, password);
     }
 
     public Long getId() {

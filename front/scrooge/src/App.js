@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Layout, Main, AccountBook, Community, MyPage, Join } from './screens';
+import { Layout, Main, AccountBook, Community, MyPage, Join, Login } from './screens';
 
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         <Route path="/community" element = { <Layout> <Community/> </Layout> }/>
         <Route path="/myPage" element = { <Layout> <MyPage/> </Layout> }/>
         <Route path="/join" element = { <Join/> }/>
+        <Route path="/login" element = { <Login/> }/>
       </Routes>
     </Router>
   );

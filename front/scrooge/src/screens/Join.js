@@ -29,11 +29,11 @@ const Join = () =>{
     }    
 
     return (
-        <div className="loginForm">
+        <div className="joinForm">
             <form onSubmit={reqeustJoin} >
                 <h1>회원가입</h1>
                 <input id = "userId" name = "userId" value={userId} onChange={e=>setUserId(e.target.value)} placeholder="아이디"/>
-                <input id = "password" name = "password" value={password} onChange={e=>setPassword(e.target.value)} placeholder="비밀번호"/>
+                <input id = "password" name = "password" type = "password" value={password} onChange={e=>setPassword(e.target.value)} placeholder="비밀번호"/>
                 <input id = "email" name = "email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="이메일"/>
                 <input id = "username" name = "username" value={username} onChange={e=>setUsername(e.target.value)} placeholder="이름"/>
                 <input id = "nickname" name = "nickname" value={nickname} onChange={e=>setNickname(e.target.value)} placeholder="닉네임"/>

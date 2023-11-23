@@ -2,8 +2,9 @@ package chandori.server.service;
 
 import chandori.server.dto.JoinDto;
 import chandori.server.entity.user.UserAccount;
-import chandori.server.repository.userRepository;
-import chandori.util.AccountInfoPolicy;
+import chandori.server.repository.UserRepository;
+import chandori.server.util.AccountInfoPolicy;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,10 +13,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class JoinService {
     private final PasswordEncoder passwordEncoder;
-    private final userRepository memberRepository;
+    private final UserRepository memberRepository;
 
     @Autowired
-    public JoinService(PasswordEncoder passwordEncoder, userRepository memberRepository){
+    public JoinService(PasswordEncoder passwordEncoder, UserRepository memberRepository){
         this.passwordEncoder = passwordEncoder;
         this.memberRepository = memberRepository;
     }
