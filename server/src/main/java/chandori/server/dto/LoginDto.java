@@ -1,5 +1,8 @@
 package chandori.server.dto;
 
+import lombok.Builder;
+
+@Builder
 public class LoginDto {
     private String userId;
     private String password;

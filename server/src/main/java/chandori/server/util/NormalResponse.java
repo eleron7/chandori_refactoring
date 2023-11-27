@@ -1,6 +1,5 @@
 package chandori.server.util;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

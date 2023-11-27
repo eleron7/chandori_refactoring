@@ -3,7 +3,6 @@ package chandori.server.entity.user;
 
 import jakarta.persistence.*;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @Entity
@@ -51,10 +50,6 @@ public class UserAccount {
     }
 
     public UserAccount() {}
-
-    public UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken(){
-        return new UsernamePasswordAuthenticationToken(userId, password);
-    }
 
     public Long getId() {
         return id;

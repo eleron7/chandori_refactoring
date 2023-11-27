@@ -12,8 +12,8 @@ const Login = () => {
     const reqeustLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get(
-                ApiEndpoint.Login,
+            const response = await axios.post(
+                ApiEndpoint.login,
                 { userId, password, isManager }
             );
     
