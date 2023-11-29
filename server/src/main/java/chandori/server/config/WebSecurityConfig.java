@@ -1,6 +1,5 @@
 package chandori.server.config;
 
-import chandori.server.service.CustomUserDetailsService;
 import chandori.server.util.jwt.JwtAccessDeniedHandler;
 import chandori.server.util.jwt.JwtAuthenticationEntryPoint;
 import chandori.server.util.jwt.TokenProvider;
@@ -11,7 +10,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -40,15 +38,9 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        return new CustomUserDetailsService(); // CustomUserDetailsService는 사용자 정보를 제공하는 클래스입니다. 아래에 구현되어 있어야 합니다.
-    }
-
-
-    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors()//*CORS 활성화
+                .cors()
 
                 .and()
                 .httpBasic().disable()//*HTTP 기본 인증 비활성화
@@ -68,7 +60,23 @@ public class WebSecurityConfig {
                 .and()
                 .apply(new JwtSecurityConfig(tokenProvider, redisTemplate));//Jwt 보안구성 설정
 
+        //JwtAuthentication exception handling
+        http.exceptionHandling().authenticationEntryPoint(new JwtAuthenticationEntryPoint());
+
+        //access Denial handler
+        http.exceptionHandling().accessDeniedHandler(new JwtAccessDeniedHandler());
         return http.build();
     }
 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
+    }
 }

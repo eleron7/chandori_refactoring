@@ -122,4 +122,8 @@ public class UserAccount {
     public void setRoles(String roles) {
         this.roles = roles;
     }
+
+    public UsernamePasswordAuthenticationToken toAuthentication(){
+        return new UsernamePasswordAuthenticationToken(userId, password);
+    }
 }

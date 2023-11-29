@@ -5,10 +5,11 @@ import chandori.server.service.LoginService;
 import chandori.server.util.NormalResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/api/login")
+@RequestMapping("/api")
 @RestController
 public class LoginController {
     private final LoginService loginService;
@@ -18,8 +19,13 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    @PostMapping("")
+    @PostMapping("/login")
     public ResponseEntity<?> Login(@RequestBody LoginDto dto){
         return NormalResponse.toResponseEntity(HttpStatus.OK, loginService.login(dto));
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> Logout(RequestEntity<?> httpMessage){
+        return NormalResponse.toResponseEntity(HttpStatus.OK, loginService.logout(httpMessage));
     }
 }

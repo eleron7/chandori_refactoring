@@ -39,7 +39,10 @@ public class TokenProvider {
                 .collect(Collectors.joining(","));
 
         long now = (new Date()).getTime();//현재시간
+        System.out.println(now);
+
         Date tokenExpiresIn = new Date(now + ACCESS_TOKEN_EXPIRE_TIME);//현재시각 + 토큰 유지 시간 = 토큰 만료시각
+        System.out.println(tokenExpiresIn);
 
         String accessToken = Jwts.builder()
                 .setSubject(authentication.getName())
@@ -92,5 +95,13 @@ public class TokenProvider {
         }
     }
 
+    public Long getExpiration(String accessToken) {
+        // accessToken 남은 유효시간
+        Date expiration = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody().getExpiration();
+
+        // 현재 시간
+        Long now = new Date().getTime();
+        return (expiration.getTime() - now);
+    }
 
 }

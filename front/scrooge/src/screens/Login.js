@@ -4,6 +4,10 @@ import ApiEndpoint from "../components/api/ApiEndpoint";
 import ScroogeLogo from  "../images/header/scrooge.png";
 import "./Login.css";
 
+function setAccessTokenCookie(accessToken) {
+    document.cookie = accessToken;
+}
+
 const Login = () => {
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
@@ -14,12 +18,12 @@ const Login = () => {
         try {
             const response = await axios.post(
                 ApiEndpoint.login,
-                { userId, password, isManager }
+                { userId, password, isManager },
+                { withCredentials : true }
             );
     
-            if(response.status === 200) {
-                alert("로그인 완료");
-            }
+            const { accessToken } = await response.data.message.token;
+            setAccessTokenCookie(accessToken);
         } catch (error){
             alert(error.response.data);
         }
