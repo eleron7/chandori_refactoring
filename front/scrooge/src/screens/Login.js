@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import ApiEndpoint from "../components/api/ApiEndpoint";
 import ScroogeLogo from  "../images/header/scrooge.png";
+import { useNavigate } from 'react-router-dom';
 import "./Login.css";
 
 function setAccessTokenCookie(accessToken) {
-    document.cookie = accessToken;
+    document.cookie = `accessToken=${accessToken}`;
 }
 
 const Login = () => {
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
     const [isManager, setIsManager] = useState("");
+    const navigate = useNavigate();
 
     const reqeustLogin = async (e) => {
         e.preventDefault();
@@ -21,9 +23,10 @@ const Login = () => {
                 { userId, password, isManager },
                 { withCredentials : true }
             );
-    
             const { accessToken } = await response.data.message.token;
             setAccessTokenCookie(accessToken);
+            navigate('/');
+            
         } catch (error){
             alert(error.response.data);
         }
